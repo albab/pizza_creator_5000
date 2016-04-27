@@ -1,0 +1,17 @@
+%h1 New Pizza
+= form_for @pizza do |f|
+	.field
+		= f.text_field :name, placeholder: 'Name'
+	.field
+		= f.text_area :description, placeholder: 'Description'
+	.field
+		= f.text_field :cost, placeholder: 'Cost'
+	
+	#toppings_selection
+		= f.nested_fields_for :toppings do |ff|
+			= ff.remove_nested_fields_link
+			= ff.collection_select :name, Topping.where(pizza_id: nil).order(:name),:id,:name, include_blank: true	
+		= f.add_nested_fields_link :toppings
+
+	#submit
+		= f.submit 'Save', class: 'btn btn-success'

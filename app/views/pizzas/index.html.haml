@@ -2,6 +2,39 @@
 	.col-md-12.text-center
 		.col-md-6#pizza_list
 			%h1 Pizzas
+			.col-md-12#list_o_pizzas
+				- if @pizzas
+					- @pizzas.each do |pizza|
+						.each_pizza
+							.pizza_name
+								= pizza.name
+							.pizza_description
+								= pizza.description
+							.pizza_cost
+								= "$#{pizza.cost}"
+							#build_out_pizza
+								#plain_pizza
+									= image_tag 'pizza.png'
+									- pizza.toppings.each do |topping|
+										- if topping.name == '1'
+											.topping#olives
+												= image_tag 'olives.png'
+										- elsif topping.name == '2'
+											.topping#spinach
+												= image_tag 'spinach.png'
+										- elsif topping.name == '3'
+											.topping#mushrooms
+												= image_tag 'mushrooms.png'
+										- elsif topping.name == '4'
+											.topping#pepperoni
+												= image_tag 'pepperoni.png'
+										- elsif topping.name == '5'
+											.topping#sausage
+												= image_tag 'sausage.png'
+				- else 
+					%h4#no_pizzas No pizzas created yet!
+
+
 		.col-md-6#pizza_tools
-			= link_to 'Create Pizza', id: 'create_pizza'
-			= link_to 'Create Topping', id: 'create_topping'
+			= link_to 'Create Pizza', new_pizza_path, id: 'create_pizza'
+			= link_to 'Create Topping', new_topping_path, id: 'create_topping'
