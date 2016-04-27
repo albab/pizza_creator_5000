@@ -1,11 +1,14 @@
 .row
 	.col-md-12.text-center
-		.col-md-6#pizza_list
+		.col-md-12#pizza_tools
+			= link_to 'Create Pizza', new_pizza_path, id: 'create_pizza'
+			= link_to 'Create Topping', new_topping_path, id: 'create_topping'
+		.col-md-12#pizza_list
 			%h1 Pizzas
 			.col-md-12#list_o_pizzas
 				- if @pizzas
 					- @pizzas.each do |pizza|
-						.each_pizza
+						.each_pizza.col-md-4
 							.pizza_name
 								= pizza.name
 							.pizza_description
@@ -33,8 +36,3 @@
 												= image_tag 'sausage.png'
 				- else 
 					%h4#no_pizzas No pizzas created yet!
-
-
-		.col-md-6#pizza_tools
-			= link_to 'Create Pizza', new_pizza_path, id: 'create_pizza'
-			= link_to 'Create Topping', new_topping_path, id: 'create_topping'

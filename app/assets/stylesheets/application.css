@@ -27,3 +27,48 @@
 #plain_pizza {
 	position: relative;
 }
+
+.each_pizza {
+	color: #333;
+  padding: 10px;
+}
+
+.pizza_name {
+	font-size: 26px;
+}
+
+.pizza_description{
+	color: #7D7D7D;
+}
+
+.pizza_cost {
+	margin-bottom: 10px;
+}
+
+#pizza_tools {
+	margin-top: 10px;
+	font-size: 20px;
+}
+
+#create_pizza {
+	color: #3C9836;
+	text-decoration: none;
+	transition: all 0.25s ease-in-out;
+	margin-right: 10px;
+}
+
+#create_pizza:hover {
+	color: #2A6D23;
+}
+
+
+#create_topping {
+	color: #985524;
+	text-decoration: none;
+	transition: all 0.25s ease-in-out;
+	margin-left: 10px;
+}
+
+#create_topping:hover {
+	color: #723E19;
+}
