@@ -1,0 +1,17 @@
+= form_for @pizza, remote: true do |f|
+	.field
+		= f.text_field :name, placeholder: 'Name', class: 'form-control'
+	.field
+		= f.text_area :description, placeholder: 'Description', class: 'form-control'
+	.field
+		= f.text_field :cost, placeholder: 'Cost', class: 'form-control'
+	
+	#toppings_selection
+		= f.nested_fields_for :toppings do |ff|
+			.field
+				= ff.remove_nested_fields_link
+				= ff.collection_select :name, Topping.where(pizza_id: nil).order(:name),:id,:name, include_blank: true
+		= f.add_nested_fields_link :toppings
+
+	#submit
+		= f.submit 'Save', class: 'btn btn-success'

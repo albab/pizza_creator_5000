@@ -1,17 +1,24 @@
-%h1 New Pizza
-= form_for @pizza do |f|
-	.field
-		= f.text_field :name, placeholder: 'Name'
-	.field
-		= f.text_area :description, placeholder: 'Description'
-	.field
-		= f.text_field :cost, placeholder: 'Cost'
-	
-	#toppings_selection
-		= f.nested_fields_for :toppings do |ff|
-			= ff.remove_nested_fields_link
-			= ff.collection_select :name, Topping.where(pizza_id: nil).order(:name),:id,:name, include_blank: true	
-		= f.add_nested_fields_link :toppings
+.col-md-12.text-center
+	%h1 New Pizza
+	#pizza_form
+		= form_for @pizza do |f|
+			.field
+				= f.text_field :name, placeholder: 'Name', class: 'form-control'
+			.field
+				= f.text_area :description, placeholder: 'Description', class: 'form-control'
+			.field
+				= f.text_field :cost, placeholder: 'Cost', class: 'form-control'
+			
+			#toppings_selection
+				= f.nested_fields_for :toppings do |ff|
+					= ff.remove_nested_fields_link
+					= ff.collection_select :name, Topping.where(pizza_id: nil).order(:name),:id,:name, include_blank: true	
+				= f.add_nested_fields_link :toppings
 
-	#submit
-		= f.submit 'Save', class: 'btn btn-success'
+			#submit
+				= f.submit 'Save', class: 'btn btn-success'
+
+.col-md-12#pizza_list.text-center
+	%h1 Current Pizzas
+	.col-md-12#list_o_pizzas
+		= render 'list_o_pizzas'

@@ -1,2 +1,4 @@
-%h1 Toppings#index
-%p Find me in app/views/toppings/index.html.haml
+%h1 Toppings
+- @toppings.each do |topping|
+	.topping_item
+		= topping.name

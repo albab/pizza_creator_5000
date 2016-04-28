@@ -5,12 +5,13 @@ class PizzasController < ApplicationController
 
 	def new
 		@pizza = Pizza.new
+		@pizzas = Pizza.all
 	end
 
 	def create
 		@pizza = Pizza.new(pizza_params)
 		@pizza.save!
-		redirect_to root_path
+		redirect_to new_pizza_path
 	end
 
 	def update

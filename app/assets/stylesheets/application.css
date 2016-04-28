@@ -72,3 +72,28 @@
 #create_topping:hover {
 	color: #723E19;
 }
+
+.modal-header {
+	border-bottom: none !important;
+}
+
+.field {
+	margin-bottom: 10px;
+}
+
+.field input {
+	padding: 10px;
+}
+
+.remove_nested_fields_link {
+	color: #BF332C;
+}
+
+#submit {
+	margin-top: 30px;
+}
+
+#pizza_form {
+	width: 70%;
+	margin: 0 auto;
+}

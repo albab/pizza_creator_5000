@@ -1,0 +1,5 @@
+= form_for @topping, remote: true do |f|
+	.field
+		= f.text_field :name, placeholder: 'Name'
+	#submit
+		= f.submit 'Save', class: 'btn btn-success'
